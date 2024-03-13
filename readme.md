@@ -16,18 +16,14 @@ To follow the submission:
 4. we can now answer stakeholder questions below: 
 
 What questions do you have about the data?
+
     We have both a brand category and category code.  What can the code be used for and if this is something we need to access often, would it be worth
     splitting this into its own column (as seen in diagram) with supplemental information about brand categories.  In addition what do the codes represent?
-
     I noticed that RewardsReceiptItem columns had up to 35 distinct values, are these all needed and can we possibly save space by eliminating some of these? 
-
     What is the purpose behind $oid? Is this from an old database migration and how can we organize data better in the future.
-
     What is the purpose of targetPrice? 
-
     Why is each brand associated with a single barcode?  I could see a situation in the future where we would want a 1 to many between barcodes and brands.
     Unless by brand we actually mean this to be a product?  Either way we may want to consider a product table in the future with associated barcodes. 
-
     Data is skewed around the prices and quantity purchased, but I think this is natural that there are more low costing items and more people who buy fewer items.
 
 Data Quality issues
@@ -44,6 +40,7 @@ What do I need to know to resolve issues?
     How are barcodes assigned?  can we fill in this data somehow?  Does each brand have a brand code?
 
 What other information would you need to help you optimize the data assets you're trying to create?
+
     What is the primary use case of this data and what is the expected volume? How many reads per day? How many writes?
     Is this expected to grow?  After that it would be important to understand what we plan to get out of this data.
     Are there reports we need generated based on this data? are there systems relying on this data? 
@@ -51,6 +48,7 @@ What other information would you need to help you optimize the data assets you'r
     resources the database will need.
 
 What performance and scaling concerns do you anticipate in production and how do you plan to address them?
+
     User duplication is a large concern and the suggested fix would be to have a migration stragegy. Potentially we 
     only keep the most recent instance of a user and update any foreign keys. 
     I am concerned about nulls and bad data bloating the database - this could be resolved by enforcing certain values. 
