@@ -27,6 +27,7 @@ What questions do you have about the data?
     Data is skewed around the prices and quantity purchased, but I think this is natural that there are more low costing items and more people who buy fewer items.
 
 Data Quality issues
+
     The biggest issue is it may be hard to gain much usefulness out of this data due to nulls.  Many columns where we could be getting important information from 
     (barcode, brand code) since most of the analysis comes from the receipts dataset it may be pertinent to address that data first
     cpg is a very maligned column with data in various different formats.  It would be useful to perform unification here.
